@@ -1,0 +1,32 @@
+# .github/workflows/quality.yml
+name: Quality Check
+on:
+  push:
+  pull_request:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+    
+      - name: Instalar dependencias
+        run: |
+          pip install pytest
+
+      - name: Executar testes
+        run: pytest
+      
+      - name: Instalar dependencias (com extras)
+        run: |
+          pip install pytest flake8 pytest-cov
+
+      - name: Verificar estilo do codigo
+        run: flake8 . --max-line-length=100 --exclude=.venv
+
+      - name: Executar testes com cobertura
+        run: pytest --cov=. --cov-fail-under=80
+        # Falha se a cobertura for menor que 80%
