@@ -28,5 +28,5 @@ jobs:
         run: flake8 . --max-line-length=100 --exclude=.venv
 
       - name: Executar testes com cobertura
-      run: pytest --cov=. --cov-fail-under=80
+        run: pytest --cov=. --cov-fail-under=80
         # Falha se a cobertura for menor que 80%
