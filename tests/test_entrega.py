@@ -32,3 +32,4 @@ def test_deve_cobrar_taxa_proporcional_acima_de_3km():
 
     # Assert
     assert resultado == 9.0
+    

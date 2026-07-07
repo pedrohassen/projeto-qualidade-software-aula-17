@@ -1,4 +1,4 @@
-def calcular_taxa_entrega(distancia):   
+def calcular_taxa_entrega(distancia):
     if distancia < 0:
         raise ValueError("Distância inválida")
 
