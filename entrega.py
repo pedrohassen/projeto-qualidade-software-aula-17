@@ -1,6 +1,6 @@
 def calcular_taxa_entrega(distancia):
     if distancia < 0:
-        raise ValueError("Distância inválida")
+        return 0
 
     if distancia <= 3:
         return 5.0
